@@ -1,0 +1,33 @@
+- **Domain:** student reviews of professors at Alabama State University.
+
+- **Why this domain:** it focuses on real student feedback about teaching style, difficulty, grading, workload, and classroom experience, which is harder to find in official course descriptions or catalogs.
+
+- **Main sources to collect documents from:**
+	- Rate My Professors pages for ASU professors
+	- ASU student forum threads
+	- subreddit posts about ASU professors and classes
+	- university course evaluation summaries, if publicly available
+	- class group chats or archived discussion posts
+	- social media discussions from current or former students
+
+- **Planned source documents:**
+	1. Rate My Professors page for a commonly taken general-education professor
+	2. Rate My Professors page for a science professor
+	3. Rate My Professors page for a math professor
+	4. Rate My Professors page for a writing/composition professor
+	5. Rate My Professors page for a business professor
+	6. ASU student forum thread about easiest professors
+	7. ASU student forum thread about hardest professors
+	8. Reddit discussion about recommended ASU professors
+	9. Reddit discussion about classes to avoid or prepare for
+	10. Public course evaluation summary or department feedback page, if available
+
+- **What this system should answer:**
+	- Which professors are easiest or hardest?
+	- Which professors have heavy workloads or strict grading?
+	- Which professors explain material clearly?
+	- Which classes are worth taking with a specific professor?
+	- What patterns show up across multiple student reviews?
+
+- **2–3 sentence summary:**
+	This guide will help students find honest, student-written reviews of Alabama State University professors. The knowledge is hard to find because useful details are scattered across review sites, forums, and social posts instead of being collected in one official place. A good set of documents should capture both ratings and the reasons behind them, especially teaching style, difficulty, and class experience.
