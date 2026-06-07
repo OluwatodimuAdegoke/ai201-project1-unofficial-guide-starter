@@ -47,27 +47,11 @@ def print_result(result: dict, show_debug: bool) -> None:
     Output:
         None. Prints to stdout only.
     """
-    answer_text = result["answer"]
-
-    # Separate the answer body from the Sources section for cleaner display
-    if "Sources:" in answer_text:
-        body, _, sources_section = answer_text.partition("Sources:")
-        body = body.strip()
-        sources_section = sources_section.strip()
-    else:
-        body = answer_text.strip()
-        sources_section = None
+    answer_text = result["answer"].strip()
 
     print(f"\n  ANSWER\n  {THIN_DIVIDER}")
-    for line in body.split("\n"):
+    for line in answer_text.split("\n"):
         print(f"  {line}")
-
-    print(f"\n  SOURCES")
-    if result["sources"]:
-        for s in result["sources"]:
-            print(f"    * {s}")
-    else:
-        print("    (none identified)")
 
     if show_debug:
         print(f"\n  RETRIEVED CHUNKS  {THIN_DIVIDER}")

@@ -138,10 +138,10 @@ def build_prompt(query: str, chunks: list) -> list:
     knowledge — it must answer from the provided context only, and must
     decline if the context is insufficient. This is the grounding mechanism.
 
-    Source attribution is enforced structurally: the system prompt requires
-    the model to end every response with a "Sources:" section listing the
-    exact filenames of the chunks it drew from. This guarantees attribution
-    is always present and always tied to real retrieved documents.
+    Source attribution is enforced inline: the system prompt requires the
+    model to place a (source: filename.pdf) citation immediately after every
+    fact it states, so attribution is woven into the answer rather than
+    appended as a separate section.
 
     Input:
         query  (str):        The user's natural-language question.
@@ -177,9 +177,11 @@ def build_prompt(query: str, chunks: list) -> list:
         "Do NOT guess, infer, or fill in gaps from general knowledge.\n\n"
         "3. Be specific and cite exact course codes, credit hours, and requirements as they appear "
         "in the documents. Do not paraphrase in a way that changes the meaning.\n\n"
-        "4. At the end of EVERY response, include a 'Sources:' section that lists the filename(s) "
-        "of the document excerpts you actually used to construct your answer. "
-        "Only list sources you genuinely drew from — do not list all provided documents by default."
+        "4. Cite your source INLINE within the answer every time you state a fact drawn from a document. "
+        "Place the citation immediately after the fact, in this exact format: (source: filename.pdf). "
+        "For example: 'Students must complete 12 credit hours of Humanities and Fine Arts "
+        "(source: 01_asu_catalog_2021-2023.pdf).' "
+        "Only cite the specific file the fact came from — do not cite files you did not use."
     )
 
     # User message: context first, then question
@@ -188,8 +190,8 @@ def build_prompt(query: str, chunks: list) -> list:
         f"{context_str}\n\n"
         f"---\n\n"
         f"Question: {query}\n\n"
-        f"Remember: answer only from the excerpts above. "
-        f"End your response with a 'Sources:' section listing the filenames you used."
+        f"Remember: answer only from the excerpts above, and cite each fact inline "
+        f"using (source: filename.pdf) immediately after the fact."
     )
 
     return [
